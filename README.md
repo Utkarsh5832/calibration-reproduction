@@ -1,5 +1,3 @@
-# calibration-reproduction
-Reproducing "On Calibration of Modern Neural Networks" (Guo et al., 2017) on CIFAR-10, with an extension to distribution shift
 # Calibration of modern neural networks: reproduction and extension
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Utkarsh5832/calibration-reproduction/blob/main/calibration_reproduction.ipynb)
@@ -44,7 +42,7 @@ The temperature fitted on clean data is applied unchanged to test images with Ga
 
 ![ECE and accuracy under noise and blur](figures/calibration_under_shift_3seeds.png)
 
-**Finding.** While the corruption is mild (accuracy within about 4 points of clean), temperature scaling keeps ECE near 1 %. As the images drift further and accuracy falls, most of the benefit disappears: a single scalar fitted on in-distribution data cannot absorb the shift.
+**Finding.** While the corruption is mild (accuracy within about 4 points of clean), temperature scaling keeps ECE near 1 %. As the images drift further and accuracy falls, most of the benefit disappears: a single scalar fitted on in-distribution data cannot absorb the shift. This agrees in direction with Ovadia et al. (2019), who report that temperature scaling gives low ECE under small shifts but that ECE increases significantly as the shift grows; their study covers 16 corruption types and many models, whereas this one tests two simple corruptions on one architecture.
 
 ## Repository contents
 
@@ -78,5 +76,6 @@ One dataset and one architecture; only temperature scaling among the paper's met
 ## References
 
 1. C. Guo, G. Pleiss, Y. Sun, K. Q. Weinberger. *On Calibration of Modern Neural Networks.* ICML 2017.
-2. K. He, X. Zhang, S. Ren, J. Sun. *Deep Residual Learning for Image Recognition.* CVPR 2016.
-3. A. Krizhevsky. *Learning Multiple Layers of Features from Tiny Images* (CIFAR-10), 2009.
+2. Y. Ovadia, E. Fertig, J. Ren, Z. Nado, D. Sculley, S. Nowozin, J. V. Dillon, B. Lakshminarayanan, J. Snoek. *Can You Trust Your Model's Uncertainty? Evaluating Predictive Uncertainty Under Dataset Shift.* NeurIPS 2019.
+3. K. He, X. Zhang, S. Ren, J. Sun. *Deep Residual Learning for Image Recognition.* CVPR 2016.
+4. A. Krizhevsky. *Learning Multiple Layers of Features from Tiny Images* (CIFAR-10), 2009.
